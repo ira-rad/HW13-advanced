@@ -26,10 +26,12 @@ function* newFontGenerator() {
 const fontGenerator = newFontGenerator();
 startValue.addEventListener("click", () => {
   txt.style.fontSize = "14px";
+  text.innerHTML ='';
 });
 
 up.addEventListener("click", () => {
   size = true;
+  text.innerHTML ='';
   txt.style.fontSize = `${fontGenerator.next().value}px`;
   console.log(`${fontGenerator.next().value}px`);
 });
