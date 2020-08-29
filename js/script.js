@@ -8,7 +8,7 @@ let text = document.querySelector(".text");
 
 // Generator Id
 function* createIdGenerator() {
-  for (let i = 0; i <= 57; i++) yield i;
+  for (let i = 0; i <= Infinity; i++) yield i;
 }
 const idGenerator = createIdGenerator();
 generateID.addEventListener("click", () => {
@@ -19,7 +19,7 @@ let size;
 let defaultFont = 14;
 function* newFontGenerator() {
   while (true) {
-    size === true ? yield (defaultFont += 1) : yield (defaultFont -= 1);
+    size === true ? yield (defaultFont += 2) : yield (defaultFont -= 2);
   }
 }
 
@@ -31,16 +31,14 @@ startValue.addEventListener("click", () => {
 
 up.addEventListener("click", () => {
   size = true;
-  text.innerHTML ='';
   txt.style.fontSize = `${fontGenerator.next().value}px`;
-  console.log(`${fontGenerator.next().value}px`);
+  text.innerHTML ='';
 });
 
 down.addEventListener("click", () => {
   size = false;
   if (defaultFont >= 1) {
     txt.style.fontSize = `${fontGenerator.next().value}px`;
-    console.log(`${fontGenerator.next().value}px`);
   } else if (defaultFont <= 0) {
     txt.style.fontSize = "1px";
     text.innerHTML = `The smallest font size is 1px`;
